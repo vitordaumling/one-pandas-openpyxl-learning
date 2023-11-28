@@ -1,5 +1,6 @@
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
+import locale
 # 1- Lê pasta de trabalho da planilha
 wb = load_workbook("data/barchart.xlsx")
 sheet = wb["Relatorio"]
@@ -19,4 +20,5 @@ for i in range(min_column + 1, max_column + 1):
     sheet[f"{letter}{max_row + 1}"] = f"=SUM({letter}{min_row+1}:{letter}{max_row})"
     sheet[f"{letter}{max_row + 1}"].style = "Currency"
 
-# wb.save("Test.xlsx")
+
+wb.save("Test.xlsx")
